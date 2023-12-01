@@ -85,12 +85,36 @@
                     </a>
                 </li>
                 <li>
-                    <center><img src="img/12188dd0d1e72bff9df199954604a7ad.jpg" alt="" style="height: 246px; width:246px;padding-top: 33px;padding-right: 12px; "></center>
+                    <center><img id="random-image" src="" alt="Random Image" style="height: 246px; width:246px;padding-top: 33px;padding-right: 12px; "></center>
                 </li>
             </ul>
         </div>
         <!-- nav end -->
-
+<script>
+            // List of image URLs
+            var imageUrls = [
+              'img/white-hat-hacker-6088-1648568603.jpg',
+              'img/12188dd0d1e72bff9df199954604a7ad.jpg',
+              // Add more image URLs as needed
+            ];
+          
+            // Function to get a random index from the array
+            function getRandomIndex(array) {
+              return Math.floor(Math.random() * array.length);
+            }
+          
+            // Function to update the image source
+            function updateImage() {
+              var randomImageUrl = imageUrls[getRandomIndex(imageUrls)];
+              document.getElementById('random-image').src = randomImageUrl;
+            }
+          
+            // Initial update
+            updateImage();
+          
+            // Set interval to update image every 5 seconds (5000 milliseconds)
+            setInterval(updateImage, 3331);
+          </script>
         <!-- main start -->
         <div class="main">
             <div class="topbar">
