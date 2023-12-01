@@ -15,8 +15,8 @@
     --bgMain:#fff;
     --bgMainHover:#222;
     --textcolor:#287bff;
-    --bgNavigationHover:green;
-    --bgNavigation: #287bff;
+    --bgNavigationHover:#fff;
+    --bgNavigation: rgb(0, 161, 62);;
     --bgdetails:#fff;
     --textdetails:  #222;
 }
