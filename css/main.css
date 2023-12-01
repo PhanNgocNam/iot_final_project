@@ -1,0 +1,771 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+    --blue: #287bff;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --bg-box: #fff;
+    --bgMain:#fff;
+    --bgMainHover:#222;
+    --textcolor:#287bff;
+    --bgNavigationHover:#fff;
+    --bgNavigation: #287bff;
+    --bgdetails:#fff;
+    --textdetails:  #222;
+}
+
+:root .dark {
+    --blue: #222;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --bg-box: #2E2E2E;
+
+    --bgMain:#222;
+    --bgMainHover:#222;
+    --textcolor:#999;
+    --bgNavigationHover:#222;
+    --bgNavigation:#2E2E2E;
+    --bgdetails:#2E2E2E;
+    --textdetails: #999;
+    
+
+
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+
+/********navigation style********************************
+*********************************************************/
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--bgNavigation);
+    border-left: 10px solid var(--bgNavigation);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 80px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background: var(--bgNavigationHover);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: var(--textcolor);
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+
+}
+
+.navigation ul li a .icon ion-icon {
+
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/* curve outside */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--bgNavigationHover);
+    pointer-events: none;
+
+
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--bgNavigationHover);
+    pointer-events: none;
+
+
+}
+
+/* navigation style  end*/
+
+/**********main style ***************
+************************************/
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    transform: 0.5s;
+    background:var(--bgMain)
+    
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+
+
+}
+
+/* .search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    outline: none;
+    padding-left: 35px;
+    font-size: 18px;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+
+} */
+
+/*  */
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--bg-box);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--textcolor);
+}
+
+.cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+    font-size: 3.5em;
+    color: var(--black2);
+
+}
+
+.cardBox .card:hover {
+    background: var(--bgNavigation);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: var(--white);
+}
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.details .recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--bgdetails);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.cardHeaders {
+    /* overflow-y: scroll; */
+    max-height: 700px;
+    display: inline;
+    line-height: 50px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: flex-start; */
+
+}
+
+.cardHeaders h2 {
+   
+    font-weight: 600;
+    color: var(--textdetails);
+}
+
+.btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--bgMainHover);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+.details table {
+    height: 400px;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.details table thead td {
+    font-weight: 600;
+}
+
+.details .recentOrders table tr {
+    color: var(--textdetails);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details .recentOrders table tr td {
+    padding: 10px;
+}
+
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(2) {
+    text-align: start;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.status.delivered {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+.status.off {
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.warning {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/*  */
+.recentCustomers {
+    position: relative;
+    /* display: grid; */
+    min-height: 500px;
+    padding: 20px;
+    background: var(--bgdetails);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.recentCustomers .imgBx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+/* .recentCustomers table{
+    margin-bottom: 180px;
+} */
+.recentCustomers .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.recentCustomers table tr td {
+    padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--bgdetails);
+}
+
+/* .recentCustomers table tr:hover {
+    background: var(--bgNavigation);
+    color: var(--white)
+}
+
+.recentCustomers table tr:hover td h4 span {
+    color: var(--white)
+} */
+
+/***********Chart*******************************
+************************************************
+**********************************************8*/
+.graphBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    min-height: 200px;
+}
+
+.graphBox .box {
+    position: relative;
+    background: var(--bg-box);
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+
+
+/***********Responsive design*******************
+************************************************
+************************************************/
+@media (max-width:991px) {
+    .navigation {
+        left: -300px;
+    }
+
+    .navigation.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 300px;
+    }
+
+    .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .graphBox {
+      
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+}
+
+@media (max-width:768px) {
+    .details {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+    .graphBox {
+      
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .recentOrders {
+        overflow-x: auto;
+    }
+
+    .status.warning {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width:480px) {
+    .graphBox {
+      
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeaders h2 {
+        font-size: 20px;
+    }
+
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle {
+
+        z-index: 10001;
+
+    }
+
+    .main.active .toggle {
+        position: fixed;
+
+        left: initial;
+        color: var(--white);
+    }
+}
+
+/* mode*/
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: var(--blue);
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(24px);
+}
+
+
+/*  Support me if you like it */
+.support {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.support a {
+    color: #292c35;
+    font-size: 32px;
+    backface-visibility: hidden;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.support a:hover {
+    transform: scale(1.1);
+}
+
+/*  */
+.wrapper {
+    margin-top: 25px;
+    height: 100%;
+    width: 100%;
+
+}
+
+.progress {
+    height: 45px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.toggle-btn, .toggle-btn1, .toggle-btn2, .toggle-btn3, .toggle-btn4, .toggle-btn5{
+    width: 80px;
+    height: 40px;
+    background: #ebe7e7;
+    border-radius: 30px;
+    /* padding: 5px; */
+    transition: all 300ms ease-in-out;
+}
+
+.toggle-btn > .inner-circle, .toggle-btn1 > .inner-circle, .toggle-btn2 > .inner-circle, .toggle-btn3 > .inner-circle, .toggle-btn4> .inner-circle, .toggle-btn5> .inner-circle {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    transition: all 300ms ease-in-out;
+}
+
+h5 {
+    color: black;
+    padding-left: 2px;
+    padding-top: 6px;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background: #16FF00;
+    /* box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3; */
+    transition-delay: 0.5s;
+}
+.toggle-btn1.active {
+    background: #16FF00;
+    /* box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3; */
+    transition-delay: 0.5s;
+}
+.toggle-btn2.active {
+    background: #16FF00;
+    /* box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3; */
+    transition-delay: 0.5s;
+}
+.toggle-btn3.active {
+    background: #16FF00;
+    /* box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3; */
+    transition-delay: 0.5s;
+}
+.toggle-btn4.active {
+    background: #16FF00;
+    /* box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3; */
+    transition-delay: 0.5s;
+}
+.toggle-btn5.active {
+    background: #16FF00;
+    /* box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3; */
+    transition-delay: 0.5s;
+}
+
+.toggle-btn.active>.inner-circle,.toggle-btn1.active>.inner-circle,.toggle-btn2.active>.inner-circle,.toggle-btn3.active>.inner-circle,.toggle-btn4.active>.inner-circle,.toggle-btn5.active>.inner-circle {
+    margin-left: 40px;
+}
+
+h4 {
+    font-size: 40px;
+    font-weight: 600;
+    padding-top: 30px;
+    padding-left: 40px;
+    color: var(--textcolor);
+  
+}
+
+
+/* button */
+#myTable img{
+    width: 300px;
+
+}
+
+#pagination button{
+    width: 35px;
+    height: 25px;
+    cursor: pointer;
+    
+}
+
+
+  
+
+/* toast */
+.toast-container {
+    position: fixed;
+    right: 0;
+    top: 10px;
+    z-index: 99999999999999999999999;
+    margin-bottom: 20px;
+
+}
+
+.toast {
+    background-color: #eb1010;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 99999999999999999999999;
+    margin-bottom: 20px;
+}
+
+.toast.show {
+    z-index: 99999999999999999999999;
+    opacity: 1;
+    margin-bottom: 20px;
+}
