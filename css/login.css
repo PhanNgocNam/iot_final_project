@@ -338,6 +338,8 @@ button {
 	border-radius: 5px;
 	cursor: pointer;
 }
-
+button:hover {
+	background-color: #7f8c8d;
+  }
    
 }
