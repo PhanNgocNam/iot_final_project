@@ -6,7 +6,7 @@
 }
 
 :root {
-    --blue: rgb(0, 161, 62);;
+    --blue: rgb(0, 161, 62);
     --white: #fff;
     --grey: #f5f5f5;
     --black1: #222;
@@ -14,15 +14,15 @@
     --bg-box: #fff;
     --bgMain:#fff;
     --bgMainHover:#222;
-    --textcolor:rgb(0, 161, 62);;
+    --textcolor:rgb(0, 161, 62);
     --bgNavigationHover:#fff;
     --bgNavigation: rgb(0, 161, 62);
-    --bgdetails:#fff;
+    --bgdetails:c;
     --textdetails:  #222;
 }
 
 :root .dark {
-    --blue: #222;
+    --blue: rgb(0, 161, 62);;
     --white: #fff;
     --grey: #f5f5f5;
     --black1: #222;
@@ -31,9 +31,9 @@
 
     --bgMain:#222;
     --bgMainHover:#222;
-    --textcolor:#fff;
-    --bgNavigationHover:rgb(0, 161, 62);;
-    --bgNavigation:#2E2E2E;
+    --textcolor:rgb(0, 161, 62);;
+    --bgNavigationHover:#fff;
+    --bgNavigation:rgb(0, 161, 62);;
     --bgdetails:#2E2E2E;
     --textdetails: #999;
     
