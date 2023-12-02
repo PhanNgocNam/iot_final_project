@@ -13,11 +13,11 @@
     --black2: #999;
     --bg-box: #fff;
     --bgMain:#fff;
-    --bgMainHover:#222;
+    --bgMainHover:rgb(0, 161, 62);
     --textcolor:rgb(0, 161, 62);
-    --bgNavigationHover:#fff;
-    --bgNavigation: rgb(0, 161, 62);
-    --bgdetails:c;
+    --bgNavigationHover:rgb(0, 161, 62);
+    --bgNavigation:2E2E2E;
+    --bgdetails:2E2E2E;
     --textdetails:  #222;
 }
 
