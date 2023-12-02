@@ -284,13 +284,13 @@ body {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
-    color: rgb(221, 0, 0);
+    color: rgb(255, 255, 0);
 }
 .cardBox .card2 .numbers2 {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
-    color: rgb(255, 255, 0);
+    color: rgb(221, 0, 0);
 }
 .cardBox .card3 .numbers3 {
     position: relative;
