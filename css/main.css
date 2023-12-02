@@ -249,7 +249,27 @@ body {
     grid-gap: 30px;
 }
 
-.cardBox .card {
+.cardBox .card1 {
+    position: relative;
+    background: var(--bg-box);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+.cardBox .card2 {
+    position: relative;
+    background: var(--bg-box);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+.cardBox .card3 {
     position: relative;
     background: var(--bg-box);
     padding: 30px;
@@ -260,32 +280,82 @@ body {
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
-.cardBox .card .numbers {
+.cardBox .card1 .numbers1 {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: rgb(221, 0, 0);
+}
+.cardBox .card2 .numbers2 {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: rgb(255, 255, 0);
+}
+.cardBox .card3 .numbers3 {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
     color: var(--textcolor);
 }
 
-.cardBox .card .cardName {
+
+
+.cardBox .card1 .cardName1 {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card2 .cardName2 {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card3 .cardName3 {
     color: var(--black2);
     font-size: 1.1em;
     margin-top: 5px;
 }
 
-.cardBox .card .iconBx {
+.cardBox .card1 .iconBx1 {
+    font-size: 3.5em;
+    color: var(--black2);
+
+}
+.cardBox .card2 .iconBx2 {
+    font-size: 3.5em;
+    color: var(--black2);
+
+}
+.cardBox .card3 .iconBx3 {
     font-size: 3.5em;
     color: var(--black2);
 
 }
 
-.cardBox .card:hover {
+.cardBox .card1:hover {
+    background: rgb(255, 255, 0);
+}
+.cardBox .card2:hover {
+    background: rgb(221, 0, 0);
+}
+.cardBox .card3:hover {
     background: var(--bgNavigation);
 }
 
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
+.cardBox .card1:hover .numbers1,
+.cardBox .card1:hover .cardName1,
+.cardBox .card1:hover .iconBx1 {
+    color: var(--white);
+}
+.cardBox .card2:hover .numbers2,
+.cardBox .card2:hover .cardName2,
+.cardBox .card2:hover .iconBx2 {
+    color: var(--white);
+}
+.cardBox .card3:hover .numbers3,
+.cardBox .card3:hover .cardName3,
+.cardBox .card3:hover .iconBx3 {
     color: var(--white);
 }
 
