@@ -22,7 +22,7 @@
 }
 
 :root .dark {
-    --blue: rgb(0, 161, 62);;
+    --blue: #222;
     --white: #fff;
     --grey: #f5f5f5;
     --black1: #222;
@@ -30,10 +30,10 @@
     --bg-box: #2E2E2E;
 
     --bgMain:#222;
-    --bgMainHover:rgb(0, 161, 62);
-    --textcolor:rgb(0, 161, 62);
+    --bgMainHover:#222;
+    --textcolor:#999;
     --bgNavigationHover:#222;
-    --bgNavigation:rgb(0, 161, 62);
+    --bgNavigation:#2E2E2E;
     --bgdetails:#2E2E2E;
     --textdetails: #999;
     
