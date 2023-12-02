@@ -284,7 +284,7 @@ body {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
-    color: rgb(255, 255, 0);
+    color: rgb(234, 234, 0);
 }
 .cardBox .card2 .numbers2 {
     position: relative;
@@ -334,7 +334,7 @@ body {
 }
 
 .cardBox .card1:hover {
-    background: rgb(255, 255, 0);
+    background: rgb(234, 234, 0);
 }
 .cardBox .card2:hover {
     background: rgb(221, 0, 0);
