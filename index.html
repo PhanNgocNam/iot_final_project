@@ -29,7 +29,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <style>
-       
+
     </style>
 </head>
 
@@ -37,7 +37,7 @@
 
     <div class="container">
 
-        
+
         <!-- start nav -->
         <div class="navigation">
             <ul>
@@ -81,41 +81,44 @@
                 </li> -->
                 <li>
                     <a id="logoutButton">
-                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                            <span class="title">Đăng xuất</span>
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Đăng xuất</span>
                     </a>
                 </li>
                 <li>
-                    <center><img id="random-image" src="" alt="Random Image" style="height: 246px; width:246px;padding-top: 33px;padding-right: 12px; "></center>
+                    <div class="imgNav">
+                        <center><img id="random-image" src="" alt="Random Image"
+                                style="height: 246px; width:246px;padding-top: 33px;padding-right: 12px; "></center>
+                    </div>
                 </li>
             </ul>
         </div>
         <!-- nav end -->
-<script>
+        <script>
             // List of image URLs
             var imageUrls = [
-              'img/12188dd0d1e72bff9df199954604a7ad.jpg','img/13.jpg','img/14.jpg','img/15.jpg',
-              'img/2.jpg','img/7.jpg',
-              // Add more image URLs as needed
+                'img/12188dd0d1e72bff9df199954604a7ad.jpg', 'img/13.jpg', 'img/14.jpg', 'img/15.jpg',
+                'img/2.jpg', 'img/7.jpg',
+                // Add more image URLs as needed
             ];
-          
+
             // Function to get a random index from the array
             function getRandomIndex(array) {
-              return Math.floor(Math.random() * array.length);
+                return Math.floor(Math.random() * array.length);
             }
-          
+
             // Function to update the image source
             function updateImage() {
-              var randomImageUrl = imageUrls[getRandomIndex(imageUrls)];
-              document.getElementById('random-image').src = randomImageUrl;
+                var randomImageUrl = imageUrls[getRandomIndex(imageUrls)];
+                document.getElementById('random-image').src = randomImageUrl;
             }
-          
+
             // Initial update
             updateImage();
-          
+
             // Set interval to update image every 5 seconds (5000 milliseconds)
             setInterval(updateImage, 3331);
-          </script>
+        </script>
         <!-- main start -->
         <div class="main">
             <div class="topbar">
@@ -168,9 +171,9 @@
                     <div class="iconBx3"><ion-icon name="water-outline"></ion-icon></div>
                 </div>
 
-          
-                
-                
+
+
+
             </div>
 
 
@@ -198,12 +201,13 @@
                         <div id="search-box">
                             <input type="text" id="search-input" placeholder="Tìm theo tên thiết bị...">
                             <button onclick="renderEmployees()" style="display: none;">Search</button>
+                            <button onclick="exportToExcel()" >Export File</button>
                         </div>
                         <table id="myTable">
                             <thead>
                                 <tr>
-                                    <td>Thiết bị</td>
                                     <td>Thời gian</td>
+                                    <td>Thiết bị</td>
                                     <td>Trạng thái</td>
                                 </tr>
                             </thead>
@@ -380,11 +384,11 @@
         </div>
         <!-- main end-->
     </div>
-<!--  -->
+    <!--  -->
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
-<!--  -->
+    <!--  -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
@@ -395,7 +399,7 @@
     <script src="./js/firebaseA.js"></script>
     <script src="./js/button.js"></script>
     <script src="./js/home.js"></script>
-   
+
 </body>
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -403,21 +407,22 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-      apiKey: "AIzaSyB3vnc3vRZy5PjqMaS5P_-Wk1Onsr0HU_o",
-      authDomain: "swallowshouse-45f02.firebaseapp.com",
-      projectId: "swallowshouse-45f02",
-      storageBucket: "swallowshouse-45f02.appspot.com",
-      messagingSenderId: "746428482783",
-      appId: "1:746428482783:web:9fc071056d1c940007956a",
-      measurementId: "G-2HM0YKJQ58"
+        apiKey: "AIzaSyB3vnc3vRZy5PjqMaS5P_-Wk1Onsr0HU_o",
+        authDomain: "swallowshouse-45f02.firebaseapp.com",
+        projectId: "swallowshouse-45f02",
+        storageBucket: "swallowshouse-45f02.appspot.com",
+        messagingSenderId: "746428482783",
+        appId: "1:746428482783:web:9fc071056d1c940007956a",
+        measurementId: "G-2HM0YKJQ58"
     };
-  
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-  </script>
+</script>
+
 </html>
