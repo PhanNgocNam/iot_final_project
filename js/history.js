@@ -262,3 +262,57 @@ document.getElementById('search-input').addEventListener('input', function () {
     renderEmployees();
 });
 
+function fetchFirebaseData() {
+    return new Promise((resolve, reject) => {
+        employeeRef.once('value', function (snapshot) {
+            var employees = snapshot.val();
+            if (employees) {
+                resolve(employees);
+            } else {
+                reject("No data found in Firebase.");
+            }
+        });
+    });
+}
+
+function getCurrentDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+function exportToExcel() {
+    // Fetch data from Firebase using the Promise
+    fetchFirebaseData()
+        .then((employees) => {
+            // Convert Firebase object to an array
+            const dataArray = Object.keys(employees).map(key => {
+                const employee = employees[key];
+                return {
+                    'Time': employee.time,
+                    'Temperature': employee.temperature,
+                    'Humidity': employee.humidity,
+                    'Light': employee.light,
+                    'Status': (employee.temperature >= 27 || employee.humidity > 80) ? "Warning" : "Good"
+                };
+            });
+
+            // Create a new workbook with a worksheet
+            var workbook = XLSX.utils.book_new();
+            var worksheet = XLSX.utils.json_to_sheet(dataArray);
+
+            // Append the worksheet to the workbook
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+            const currentDate = getCurrentDate();
+            // Convert the workbook to an Excel file and download
+            var filename = `History_Data_${currentDate}.xlsx`;
+            XLSX.writeFile(workbook, filename);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
+
+// Trigger the export function
+exportToExcel();
