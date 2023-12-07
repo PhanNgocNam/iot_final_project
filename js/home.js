@@ -15,7 +15,8 @@ let main = document.querySelector('.main');
 toggle.onclick = function () {
     navigation.classList.toggle('active')
     main.classList.toggle('active')
-
+    img.classList.imgNav('active')
+    
 }
 // firebase
 // mode
@@ -148,21 +149,76 @@ document.getElementById('search-input').addEventListener('input', function () {
     renderEmployees();
 });
 
-function exportToExcel() {
-    // Get the table HTML element
-    var table = document.getElementsByTagName("table")[0];
+// function exportToExcel() {
+//     // Get the table HTML element
+//     var table = document.getElementsByTagName("table")[0];
 
-    // Convert the table to a worksheet object
-    var worksheet = XLSX.utils.table_to_sheet(table);
+//     // Convert the table to a worksheet object
+//     var worksheet = XLSX.utils.table_to_sheet(table);
 
-    // Create a new workbook with a worksheet
-    var workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+//     // Create a new workbook with a worksheet
+//     var workbook = XLSX.utils.book_new();
+//     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
-    // Convert the workbook to an Excel file and download
-    var filename = "History_Devices.xlsx";
-    XLSX.writeFile(workbook, filename);
+//     // Convert the workbook to an Excel file and download
+//     var filename = "History_Devices.xlsx";
+//     XLSX.writeFile(workbook, filename);
+// }
+
+function fetchFirebaseData() {
+  return new Promise((resolve, reject) => {
+      employeeRef.once('value', function (snapshot) {
+          var employees = snapshot.val();
+          if (employees) {
+              resolve(employees);
+          } else {
+              reject("No data found in Firebase.");
+          }
+      });
+  });
 }
+function getCurrentDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, '0');
+  const day = now.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function exportToExcel() {
+  // Fetch data from Firebase using the Promise
+  fetchFirebaseData()
+      .then((employees) => {
+          // Convert Firebase object to an array
+          const dataArray = Object.keys(employees).map(key => {
+              const employee = employees[key];
+              // Format the time (you can customize the format as needed)
+              const formattedTime = new Date(employee.time).toLocaleString();
+              return {
+                  'Time': formattedTime,
+                  'Name': employee.name,
+                  'Status': employee.status
+              };
+          });
+
+          // Create a new workbook with a worksheet
+          var workbook = XLSX.utils.book_new();
+          var worksheet = XLSX.utils.json_to_sheet(dataArray);
+
+          // Append the worksheet to the workbook
+          XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+          // Convert the workbook to an Excel file and download
+          const currentDate = getCurrentDate();
+          // Convert the workbook to an Excel file and download
+          var filename = `History_Device_${currentDate}.xlsx`;
+          XLSX.writeFile(workbook, filename);
+      })
+      .catch((error) => {
+          console.error(error);
+      });
+}
+
 
 // biểu đồ
 var temperatureRef= database.ref('nha_yen_01/history_data');
