@@ -188,7 +188,20 @@
 .cardBox .card3:hover .iconBx3 {
     color: var(--white);
 }
+.navigation.active {
+    width: 80px;
+    .imgNav{
+        display: none;
+    }
+    
 
+}
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
   
 
 
